@@ -16,8 +16,7 @@ i <- (0:(length(ti)-1))
 maxti <- as.numeric(as.character(max(ti)))
 x <- i/maxti
 yfreq <- 2/(length(ti)-1)*Mod(fft(z))
-df <- data.frame(x, yfreq, "a")
+df <- data.frame(x, yfreq)
 library(ggplot2)
-a <- ggplot(df, aes(x, yfreq)) + geom_bar(aes(colour = #FF6666))
-a                                              
-#plot(x, yfreq, xlim=c(0, 0.0001))+ lines(x, yfreq)
+a <- ggplot(data = df, aes(x=x, y=yfreq)) +  geom_bar(stat="identity")+ xlim(0, 0.0001)
+a                                      
