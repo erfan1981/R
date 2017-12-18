@@ -16,5 +16,5 @@ df <- data.frame(Time, Result, StatID)
 for (i in 1:length(df$Result)) {if (df$Result[i] < 0) {df$Result[i] = -df$Result[i]/2} else {df$Result[i] = df$Result[i]}}
 df1 <- sqldf("select * from df where StatID like '%MW%' and StatID <> 'MW-1' and StatID <> 'MW-3' and StatID <> 'MW-4' and StatID <> 'MW-10' and StatID <> 'MW-2' and Result > 0")
 library(ggplot2)
-a <- ggplot(df1, aes(Time, Result)) +geom_point(aes(colour = factor(StatID)))
+a <- ggplot(df1, aes(Time, Result)) +geom_point(aes(colour = factor(StatID)))+ + theme(axis.title.x = element_text(angle=90))
 a
