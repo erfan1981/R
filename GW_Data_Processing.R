@@ -9,7 +9,7 @@ SampID <- as.character(mdata[seq(8,length(mdata$value),6),1])
 Analyte <- as.character(mdata[seq(9,length(mdata$value),6),1])
 Result <-  as.numeric(as.character(mdata[seq(10,length(mdata$value),6),1]))
 Time <- mdata[seq(11,length(mdata$value),6),1]
-timeStamp <-  as.POSIXct(as.character(Time), format= "%m/%d/%Y %H:%M")
+Time <-  as.POSIXct(as.character(Time), format= "%m/%d/%Y %H:%M")
 $plot(timeStamp, Result)
 library(sqldf)
 df <- data.frame(Time, Result, StatID)
