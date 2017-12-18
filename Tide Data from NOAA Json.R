@@ -16,4 +16,5 @@ i <- (0:(length(ti)-1))
 maxti <- as.numeric(as.character(max(ti)))
 x <- i/maxti
 yfreq <- 2/(length(ti)-1)*Mod(fft(z))
+df <- data.frame(x, yfreq)
 plot(x, yfreq, xlim=c(0, 0.0001))+ lines(x, yfreq)
