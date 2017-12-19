@@ -18,3 +18,8 @@ df1 <- sqldf("select * from df where StatID like '%MW%' and StatID <> 'MW-1' and
 library(ggplot2)
 a <- ggplot(df1, aes(Time, Result)) +geom_point(aes(colour = factor(StatID)))+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 a
+MW27 <- sqldf("select * from df where StatID == 'MW-27'")
+MW29 <- sqldf("select * from df where StatID == 'MW-29'")
+MW27SW <- shapiro.test(MW27$Result)
+MW29SW <- shapiro.test(MW29$Result)
+if (MW27SW$p.value < 0.02) {print("Data is normal distributed")} else {print("Data is not normal distributed")}
