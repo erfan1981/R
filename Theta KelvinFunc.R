@@ -1,9 +1,10 @@
+# Solution to Equ. 64  to 68 of https://pubs.usgs.gov/wri/wri034267/wri03_4267.pdf
 library(kelvin)
 library(rootSolve)
 s = 0.0000001 #storage coefficient
 rw = 0.08333333 # in ft
 rc = 0.33333333 # in ft
-Theta = -104.97
+Theta = -30.97
 ThetaRad = Theta/180*pi
 SP = s*(rc/rw)^2
 Per = 4.46E+04 #x is T'
@@ -15,4 +16,3 @@ TP <- uniroot(fun, c(0.000057, 0.1), tol =0.000000000000000000001)
 #fun(all)
 Tr = TP$root*(rc^2)/Per #Transmissivity
 Tr
-	
