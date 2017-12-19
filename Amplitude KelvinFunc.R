@@ -4,7 +4,7 @@ library(rootSolve)
 s = 0.0001 #storage coefficient
 rw = 0.08333333 # well radius in ft
 rc = 0.33333333 # well casing in ft
-A = 0.0057
+A = 0.0057 # Amplitude Ratio
 SP = s*(rc/rw)^2 # S'
 Per = 4.47E+04 # x is T' and Per is period
 fun <- function (x) (A-(((1-pi/x*Kei((2*pi*SP/x)^0.5)))^2+(pi/x*(Ker((2*pi*SP/x)^0.5))^2))^(-0.5))
