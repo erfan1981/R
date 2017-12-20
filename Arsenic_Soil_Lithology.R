@@ -19,6 +19,10 @@ library(sqldf)
 BM <- sqldf("select * from df where Litho == 'Bay Mud'")
 Fill <- sqldf("select * from df where Litho == 'Fill'")
 BR <- sqldf("select * from df where Litho == 'Bedrock'")
-FillSW <- shapiro.test(Fill$Result)
+FillSW <- shapiro.test(Fill$Result) # Shapiro-Wilk Normality Test for Sample Size < 50
 BMSW <- shapiro.test(BM$Result)
 BRSW <- shapiro.test(BR$Result)
+library(nortest)
+FillSF <- sf.test(Fill$Result) # Shapiro-Francia Normality Test for Sample Size > 50
+BMSF <- sf.test(BM$Result)
+BRSF <- sf.test(BR$Result)
