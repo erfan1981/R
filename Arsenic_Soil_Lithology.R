@@ -12,3 +12,13 @@ Litho <- as.character(mdata[seq(14,length(mdata$value),7),1])
 Time <-  as.POSIXct(as.character(Time), format= "%m/%d/%Y %H:%M")
 df <- data.frame(Time, Result, StatID, Litho)
 for (i in 1:length(df$Result)) {if (df$Result[i] < 0) {df$Result[i] = -df$Result[i]/2} else {df$Result[i] = df$Result[i]}}
+library(ggplot2)
+a <- ggplot(df, aes(Litho, Result)) +geom_point(aes(colour = factor(Litho)))#+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
+a
+library(sqldf)
+BM <- sqldf("select * from df where Litho == 'Bay Mud'")
+Fill <- sqldf("select * from df where Litho == 'Fill'")
+BR <- sqldf("select * from df where Litho == 'Bedrock'")
+FillSW <- shapiro.test(Fill$Result)
+BMSW <- shapiro.test(BM$Result)
+BRSW <- shapiro.test(BR$Result)
