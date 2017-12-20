@@ -26,3 +26,4 @@ library(nortest)
 FillSF <- sf.test(Fill$Result) # Shapiro-Francia Normality Test for Sample Size > 50
 BMSF <- sf.test(BM$Result)
 BRSF <- sf.test(BR$Result)
+ttest <- t.test(Fill$Result,BM$Result)
