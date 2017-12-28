@@ -6,4 +6,4 @@ pal <- colorNumeric("viridis", NULL)
 leaflet(CARoads) %>%
   	addTiles() %>%
 	setView(lng = -120, lat = 50, zoom = 4) %>% 
-  	addPolylines(fillColor = ~pal(as.numeric("Hrs_Delay_")) # stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1) #,
+  	addPolylines(stroke = TRUE, fillColor = ~pal("Hrs_Delay_")) # stroke = FALSE, smoothFactor = 0.3, fillOpacity = 1) #,
