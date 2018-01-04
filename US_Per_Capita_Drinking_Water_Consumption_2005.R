@@ -1,6 +1,6 @@
 # Per capita driniking water consumption in selected US cities 2005
 # Source: https://www.census.gov/support/USACdataDownloads.html#WAT
-# Coordinates for cities: https://simplemaps.com/data/us-cities- CHECK DATA SOURCE, Water Consumtions are too high for some places
+# Coordinates for cities: https://simplemaps.com/data/us-cities
 
 pal <- colorNumeric(
   palette = "YlOrRd",
