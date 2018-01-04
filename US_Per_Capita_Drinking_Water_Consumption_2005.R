@@ -6,5 +6,5 @@ USWater <- geojsonio::geojson_read("https://raw.githubusercontent.com/erfan1981/
 m <- leaflet(USWater) %>%
   	addTiles() %>%
 	setView(lng = -120, lat = 50, zoom = 4) %>% 
-	addCircles(stroke = TRUE,  color = ~colorQuantile("YlOrRd", WAT330205D)(WAT330205D))
+	addCircles(stroke = TRUE,  color = ~colorQuantile("YlOrRd", WAT330205D, n = 9)(WAT330205D))
 m %>% addProviderTiles(providers$CartoDB.Positron)
