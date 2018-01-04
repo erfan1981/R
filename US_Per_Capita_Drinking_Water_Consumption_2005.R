@@ -1,4 +1,4 @@
-# Per cepita driniking water consumption in selected US cities 2005
+# Per capita driniking water consumption in selected US cities 2005
 # Source: https://www.census.gov/support/USACdataDownloads.html#WAT
 # Coordinates for cities: https://simplemaps.com/data/us-cities
 require(leaflet)
