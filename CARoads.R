@@ -2,7 +2,7 @@
 # Delay data from CALTRANS: https://data.ca.gov/node/271/api
 # Road Shapefile Vector data from CALTRANS: http://www.dot.ca.gov/hq/tsip/gis/datalibrary/#Highway
 CARoads <- geojsonio::geojson_read("https://raw.githubusercontent.com/erfan1981/JSON/master/Caltrans_Traffic_Data.geojson",   what = "sp")
-
+require(leaflet)
 pal <- colorNumeric(
   palette = "YlOrRd",
   domain = CARoads$Hrs_Delay_)
