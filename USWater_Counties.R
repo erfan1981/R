@@ -1,6 +1,6 @@
-# Per capita driniking water consumption for US cities averages from 1995 to 2005
+# Per capita drinking water consumption for US Counties averages from 1995 to 2005
 # Source: https://www.census.gov/support/USACdataDownloads.html#WAT
-# Coordinates for cities: https://simplemaps.com/data/us-cities
+# US Counties boundary Shapefile:: https://www.census.gov/geo/maps-data/data/cbf/cbf_counties.html
 
 require(leaflet)
 USWater <- geojsonio::geojson_read("https://raw.githubusercontent.com/erfan1981/JSON/master/USWater1.geojson",   what = "sp")
