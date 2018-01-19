@@ -10,7 +10,7 @@ pal <- colorNumeric(
 m <- leaflet(CARoads) %>%
   	addTiles() %>%
 	setView(lng = -120, lat = 37, zoom = 6) %>% 
-  	addPolylines(stroke = TRUE,  color = ~colorQuantile("YlOrRd", Hrs_Delay_, n = 9)(Hrs_Delay_))
+  	addPolylines(stroke = TRUE,  color =  ~colorNumeric( palette = "YlOrRd", Hrs_Delay_, n = 9)(Hrs_Delay_))
 m %>% addProviderTiles(providers$CartoDB.Positron) %>%
 
 addLegend("bottomleft", pal = pal, values = ~Hrs_Delay_,
