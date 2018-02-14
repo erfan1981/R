@@ -14,7 +14,7 @@ $plot(timeStamp, Result)
 library(sqldf)
 df <- data.frame(Time, Result, StatID)
 for (i in 1:length(df$Result)) {if (df$Result[i] < 0) {df$Result[i] = -df$Result[i]/2} else {df$Result[i] = df$Result[i]}}
-df1 <- sqldf("select * from df where Time > 1/1/2013 and StatID like '%GW%' and StatID <> 'GW-12' and StatID <> 'GW-3' and StatID <> 'GW-4' and StatID <> 'GW-10' and StatID <> 'GW-2' and Result > 0")
+df1 <- sqldf("select * from df where Time > 01/01/2013 and StatID like '%GW%' and StatID <> 'GW-12' and StatID <> 'GW-3' and StatID <> 'GW-4' and StatID <> 'GW-10' and StatID <> 'GW-2' and Result > 0")
 library(ggplot2)
 a <- ggplot(df1, aes(Time, Result)) +geom_point(aes(colour = factor(StatID)))+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 a
