@@ -17,7 +17,8 @@ df <- data.frame(Time, Result, StatID)
 for (i in 1:length(df$Result)) {if (df$Result[i] < 0) {df$Result[i] = -df$Result[i]/2} else {df$Result[i] = df$Result[i]}}
 first_date <- "2012-11-01"
 second_date <- "2018-11-01"
-df1 <- sqldf('select * from df where Time BETWEEN "first_date" AND "second_date"')
+df1 <- sqldf("SELECT * from df where Time between '2012-11-01' and '2018-01-01'") 
+# AND "second_date"')
 library(ggplot2)
 a <- ggplot(df1, aes(Time, Result)) +geom_point(aes(colour = factor(StatID)))+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 a
