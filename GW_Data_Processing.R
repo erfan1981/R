@@ -9,12 +9,15 @@ SampID <- as.character(mdata[seq(8,length(mdata$value),6),1])
 Analyte <- as.character(mdata[seq(9,length(mdata$value),6),1])
 Result <-  as.numeric(as.character(mdata[seq(10,length(mdata$value),6),1]))
 Time <- mdata[seq(11,length(mdata$value),6),1]
-Time <-  as.POSIXct(as.character(Time), format= "%m/%d/%Y %H:%M")
+Time <- as.Date(Time, format = "%m/%d/%Y") 
+#Time <-  as.POSIXct(as.character(Time), format= "%m/%d/%Y")
 $plot(timeStamp, Result)
 library(sqldf)
 df <- data.frame(Time, Result, StatID)
 for (i in 1:length(df$Result)) {if (df$Result[i] < 0) {df$Result[i] = -df$Result[i]/2} else {df$Result[i] = df$Result[i]}}
-df1 <- sqldf("select * from df where Time > '2013-01-01 00:00' and StatID like '%GW%' and StatID <> 'GW-12' and StatID <> 'GW-3' and StatID <> 'GW-4' and StatID <> 'GW-10' and StatID <> 'GW-2' and Result > 0")
+first_date <- "2012-11-01"
+second_date <- "2018-11-01"
+df1 <- sqldf('select * from df where Time BETWEEN "first_date" AND "second_date"')
 library(ggplot2)
 a <- ggplot(df1, aes(Time, Result)) +geom_point(aes(colour = factor(StatID)))+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 a
