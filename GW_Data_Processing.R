@@ -22,4 +22,4 @@ GW27 <- sqldf("select * from df where StatID == 'GW-27'")
 GW29 <- sqldf("select * from df where StatID == 'GW-29'")
 GW27SW <- shapiro.test(GW27$Result)
 GW29SW <- shapiro.test(GW29$Result)
-if (GW27SW$p.value < 0.02) {print("Data is normal distributed")} else {print("Data is not normal distributed")}
+if (GW27SW$p.value < 0.02) {print("The null hypothesis that the data is normally distributed is rejected")} else {print("Cannot reject the null hypothesis that the data is normally distributed")}
