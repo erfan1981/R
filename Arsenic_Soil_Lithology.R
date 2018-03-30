@@ -24,7 +24,7 @@ BMSW <- shapiro.test(BM$Result)
 BRSW <- shapiro.test(BR$Result)
 library(nortest)
 FillSF <- sf.test(Fill$Result) # Shapiro-Francia Normality Test for Sample Size > 50
-if (FillSF$p.value < 0.05) {print("Data is NOT normal distributed")} else {print("Data may be normal distributed")}
+if (FillSF$p.value < 0.05) {print("The null hypothesis that the data is normally distributed is rejected")} else {print("Cannot reject the null hypothesis that the data is normally distributed")}
 BMSF <- sf.test(BM$Result)
 BRSF <- sf.test(BR$Result)
 ttest <- t.test(Fill$Result,BM$Result)
